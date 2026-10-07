@@ -251,12 +251,10 @@
   }
   @media (max-width: 600px) {
     .posts, .row { grid-template-columns: 1fr; }
-    .brand .full { display: none; }
     .nav { gap: 14px; }
     .nav a { font-size: 11px; letter-spacing: .08em; }
     .theme-toggle { width: 30px; height: 30px; }
   }
-  @media (min-width: 601px) { .brand .short { display: none; } }
 </style>
 </head>
 <body>
@@ -264,7 +262,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Home">
-      <span class="full" data-bind="name">Div Narendra</span><span class="short" data-bind="initials">DN</span>
+      <span>DN</span>
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="#about">About</a>
