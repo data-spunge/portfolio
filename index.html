@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Div Narendra — Engineering Director</title>
+<meta name="description" content="Div Narendra — Engineering Director. Writing, projects and contact.">
+<meta property="og:title" content="Div Narendra — Engineering Director">
+<meta property="og:description" content="Writing, projects and contact.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #0a0a0a;
+    --muted: #6b6b6b;
+    --line: #e4e4e4;
+    --soft: #f5f5f5;
+    --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --max: 1120px;
+    --gutter: clamp(20px, 5vw, 56px);
+  }
+  [data-theme="dark"] {
+    --bg: #0a0a0a;
+    --fg: #f4f4f4;
+    --muted: #9a9a9a;
+    --line: #262626;
+    --soft: #141414;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: background .3s ease, color .3s ease;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--fg); color: var(--bg); }
+  :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; height: 64px;
+  }
+  .brand {
+    font-family: var(--serif); font-size: 22px; font-weight: 500;
+    letter-spacing: .02em; text-decoration: none; white-space: nowrap;
+  }
+  .nav { display: flex; align-items: center; gap: clamp(14px, 3vw, 34px); }
+  .nav a {
+    font-size: 12px; font-weight: 500; letter-spacing: .14em;
+    text-transform: uppercase; text-decoration: none; color: var(--muted);
+    transition: color .2s ease;
+  }
+  .nav a:hover, .nav a.active { color: var(--fg); }
+  .theme-toggle {
+    width: 34px; height: 34px; flex: none;
+    border: 1px solid var(--line); border-radius: 50%;
+    background: transparent; color: var(--fg); cursor: pointer;
+    display: grid; place-items: center;
+    transition: border-color .2s ease;
+  }
+  .theme-toggle:hover { border-color: var(--fg); }
+  .theme-toggle span {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(90deg, var(--fg) 50%, transparent 50%);
+    border: 1.5px solid var(--fg);
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(72px, 11vw, 136px) 0; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; font-weight: 500; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--muted);
+    margin: 0 0 28px;
+  }
+  .eyebrow::after { content: ""; flex: 0 0 48px; height: 1px; background: currentColor; opacity: .5; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.08; letter-spacing: -.01em; }
+  h1 { font-size: clamp(44px, 8.4vw, 104px); max-width: 15ch; }
+  h1 em { font-style: italic; }
+  h2 { font-size: clamp(34px, 5vw, 56px); margin-bottom: clamp(36px, 5vw, 64px); }
+  p { margin: 0 0 1.1em; }
+  .lede { font-size: clamp(17px, 1.6vw, 20px); color: var(--fg); }
+  .muted { color: var(--muted); }
+
+  .arrow-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    text-decoration: none; padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+  }
+  .arrow-link span { transition: transform .25s ease; }
+  .arrow-link:hover span { transform: translate(3px, -3px); }
+
+  /* ---------- About ---------- */
+  #about { padding-top: clamp(64px, 10vw, 128px); }
+  .about-grid {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(32px, 6vw, 88px); margin-top: clamp(48px, 7vw, 96px); align-items: start;
+  }
+  .portrait {
+    aspect-ratio: 4 / 5; background: var(--soft); border: 1px solid var(--line);
+    overflow: hidden; position: relative;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line); margin-top: 40px;
+  }
+  .stats div { padding: 22px 16px 0 0; }
+  .stats strong { display: block; font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); font-weight: 400; line-height: 1; }
+  .stats span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .focus { list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .focus li, .tag {
+    font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; color: var(--muted);
+  }
+
+  /* ---------- Placeholder art (used when no image is supplied) ---------- */
+  .ph {
+    width: 100%; height: 100%; display: grid; place-items: center;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 11px, var(--line) 11px 12px),
+      var(--soft);
+    font-family: var(--serif); font-size: clamp(48px, 7vw, 84px); color: var(--muted);
+  }
+
+  /* ---------- Writing ---------- */
+  .posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 48px); }
+  .post { display: flex; flex-direction: column; }
+  .post-media {
+    display: block; aspect-ratio: 3 / 2; overflow: hidden; text-decoration: none;
+    background: var(--soft); border: 1px solid var(--line); margin-bottom: 22px;
+  }
+  .post-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(1); transition: transform .6s ease, filter .6s ease;
+  }
+  .post:hover .post-media img { transform: scale(1.04); filter: grayscale(0); }
+  .post-meta { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .post h3 { font-size: 28px; margin-bottom: 12px; }
+  .post h3 a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s ease; }
+  .post h3 a:hover { background-size: 100% 1px; }
+  .post p { color: var(--muted); font-size: 15px; flex: 1; }
+  .post-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px; margin-top: 8px; border-top: 1px solid var(--line);
+  }
+  .like {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: none; border: 0; padding: 6px 0; cursor: pointer;
+    color: var(--muted); font: 500 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase;
+    transition: color .2s ease;
+  }
+  .like:hover { color: var(--fg); }
+  .like svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; transition: transform .25s ease; }
+  .like[aria-pressed="true"] { color: var(--fg); }
+  .like[aria-pressed="true"] svg { fill: currentColor; transform: scale(1.12); }
+  .like.pop svg { animation: pop .35s ease; }
+  @keyframes pop { 40% { transform: scale(1.45); } }
+
+  /* ---------- Projects ---------- */
+  .projects { border-top: 1px solid var(--fg); }
+  .project {
+    display: grid; grid-template-columns: 72px minmax(0, 4fr) minmax(0, 6fr);
+    gap: clamp(16px, 4vw, 56px); padding: clamp(28px, 4vw, 44px) 0;
+    border-bottom: 1px solid var(--line); align-items: start;
+  }
+  .project-no { font-family: var(--serif); font-size: 22px; color: var(--muted); padding-top: 6px; }
+  .project h3 { font-size: clamp(26px, 3vw, 36px); }
+  .project p { color: var(--muted); }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+
+  /* ---------- Contact (inverted) ---------- */
+  #contact { background: var(--fg); color: var(--bg); border-bottom: 0; }
+  #contact .eyebrow { color: color-mix(in srgb, var(--bg) 60%, var(--fg)); }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 7vw, 96px); }
+  #contact h2 { margin-bottom: 24px; }
+  .contact-intro { color: color-mix(in srgb, var(--bg) 70%, var(--fg)); max-width: 40ch; }
+  .direct { margin-top: 40px; display: grid; gap: 14px; justify-items: start; }
+  .email-link { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); text-decoration: none; border-bottom: 1px solid currentColor; word-break: break-all; }
+  .socials { display: flex; gap: 24px; margin-top: 12px; }
+  form { display: grid; gap: 26px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  label { display: block; font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; opacity: .65; }
+  input, textarea {
+    width: 100%; background: transparent; color: inherit;
+    border: 0; border-bottom: 1px solid color-mix(in srgb, var(--bg) 35%, var(--fg));
+    padding: 8px 0 12px; font: 400 16px/1.5 var(--sans); border-radius: 0;
+    transition: border-color .2s ease;
+  }
+  input:focus, textarea:focus { outline: none; border-bottom-color: var(--bg); }
+  textarea { resize: vertical; min-height: 130px; }
+  .hp { position: absolute; left: -9999px; }
+  .btn {
+    justify-self: start; cursor: pointer;
+    background: var(--bg); color: var(--fg); border: 1px solid var(--bg);
+    padding: 16px 34px; font: 600 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
+    transition: background .25s ease, color .25s ease;
+  }
+  .btn:hover { background: transparent; color: var(--bg); }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .form-status { font-size: 14px; min-height: 1.5em; margin: 0; opacity: .8; }
+
+  footer { background: var(--fg); color: var(--bg); }
+  footer .wrap {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    padding-top: 28px; padding-bottom: 28px;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 20%, var(--fg));
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .7;
+  }
+  footer a { text-decoration: none; }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { animation: none !important; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .portrait { max-width: 420px; }
+    .project { grid-template-columns: 48px minmax(0, 1fr); }
+    .project-body { grid-column: 2; }
+  }
+  @media (max-width: 600px) {
+    .posts, .row { grid-template-columns: 1fr; }
+    .brand .full { display: none; }
+    .nav { gap: 14px; }
+    .nav a { font-size: 11px; letter-spacing: .08em; }
+    .theme-toggle { width: 30px; height: 30px; }
+  }
+  @media (min-width: 601px) { .brand .short { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="full" data-bind="name">Div Narendra</span><span class="short" data-bind="initials">DN</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow reveal" data-bind="title">Engineering Director</p>
+      <!-- EDIT: your headline -->
+      <h1 class="reveal">Building teams that ship with <em>clarity</em> and calm.</h1>
+
+      <div class="about-grid">
+        <div class="portrait reveal" id="portrait"></div>
+
+        <div class="reveal">
+          <!-- EDIT: your bio -->
+          <p class="lede">I'm <span data-bind="name">Div Narendra</span>, an engineering director who leads product and platform organisations through periods of scale — hiring well, simplifying architecture, and keeping delivery predictable.</p>
+          <p class="muted">My work sits where technology strategy meets people leadership: setting technical direction, growing managers and senior engineers, and building the operating rhythm that lets teams move quickly without surprises.</p>
+          <p class="muted">I write here about engineering leadership, systems design and what I'm learning along the way.</p>
+
+          <!-- EDIT: replace with your own numbers -->
+          <div class="stats">
+            <div><strong>00+</strong><span>Years in engineering</span></div>
+            <div><strong>00</strong><span>Engineers led</span></div>
+            <div><strong>00</strong><span>Products shipped</span></div>
+          </div>
+
+          <!-- EDIT: focus areas -->
+          <ul class="focus">
+            <li>Engineering strategy</li>
+            <li>Org design</li>
+            <li>Platform architecture</li>
+            <li>Delivery excellence</li>
+            <li>Talent development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section id="blog">
+    <div class="wrap">
+      <p class="eyebrow reveal">Blog</p>
+      <h2 class="reveal">Notes on leading engineering.</h2>
+      <div class="posts" id="posts"></div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow reveal">Projects</p>
+      <h2 class="reveal">Selected work.</h2>
+      <div class="projects" id="projectList"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk.</h2>
+        <p class="contact-intro">Advisory work, speaking, a role you think I should hear about, or a question on something I wrote — I read everything.</p>
+        <div class="direct">
+          <a class="email-link" id="emailLink" href="#contact"></a>
+          <div class="socials" id="socials"></div>
+        </div>
+      </div>
+
+      <form id="contactForm" class="reveal" novalidate>
+        <div class="row">
+          <div><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" required></div>
+          <div><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div><label for="cf-subject">Subject</label><input id="cf-subject" name="subject"></div>
+        <div><label for="cf-message">Message</label><textarea id="cf-message" name="message" required></textarea></div>
+        <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> <span data-bind="name">Div Narendra</span></span>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   EDIT EVERYTHING BELOW — this is the only part you need to touch
+   to update the site's content.
+   ===================================================================== */
+const SITE = {
+  name: "Div Narendra",
+  title: "Engineering Director",
+  email: "div.narendra@gmail.com",
+  portrait: "",                       // e.g. "images/portrait.jpg" (4:5 works best)
+  socials: [
+    { label: "GitHub",   url: "https://github.com/your-username" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/your-handle" }
+  ],
+  // Optional: paste a Formspree endpoint (https://formspree.io/f/xxxxxxx) to have
+  // the form deliver messages straight to your inbox. Leave empty and the form
+  // opens the visitor's own email app with the message pre-filled.
+  formEndpoint: ""
+};
+
+// Blog posts — newest first. `image` is optional; `url` points to the full article.
+const POSTS = [
+  {
+    id: "operating-rhythm",           // unique, never change once published (used for likes)
+    title: "The operating rhythm of a healthy engineering org",
+    date: "2026-09-18",
+    readTime: "6 min read",
+    image: "",                        // e.g. "images/operating-rhythm.jpg"
+    excerpt: "Most delivery problems are cadence problems in disguise. A look at the handful of recurring rituals that keep a large organisation aligned without drowning it in meetings.",
+    url: "#"                          // e.g. "blog/operating-rhythm.html"
+  },
+  {
+    id: "architecture-follows-org",
+    title: "Your architecture will follow your org chart — plan for it",
+    date: "2026-08-04",
+    readTime: "8 min read",
+    image: "",
+    excerpt: "Team boundaries become system boundaries whether you intend it or not. How to use that deliberately when you are redrawing either one.",
+    url: "#"
+  },
+  {
+    id: "growing-managers",
+    title: "Growing first-time engineering managers",
+    date: "2026-06-22",
+    readTime: "5 min read",
+    image: "",
+    excerpt: "The transition from senior engineer to manager fails quietly. What I look for in the first ninety days, and the support that actually makes a difference.",
+    url: "#"
+  }
+];
+
+// Projects — heading, description, and a link to the repo.
+const PROJECTS = [
+  {
+    title: "Project One",
+    description: "A sentence or two on what this project does, the problem it solves, and what makes the approach interesting. Mention scale or outcomes if you have them.",
+    tags: ["TypeScript", "Node.js"],
+    repo: "https://github.com/your-username/project-one"
+  },
+  {
+    title: "Project Two",
+    description: "Describe the project and your role in it. Keep it to the essentials — the repository carries the detail.",
+    tags: ["Go", "Kubernetes"],
+    repo: "https://github.com/your-username/project-two"
+  },
+  {
+    title: "Project Three",
+    description: "Another short description. Three to five projects is plenty; curate rather than list everything.",
+    tags: ["Python", "Data"],
+    repo: "https://github.com/your-username/project-three"
+  }
+];
+/* ============================ END OF CONTENT ============================ */
+
+
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  const pad = n => String(n).padStart(2, "0");
+
+  /* ---- Site-wide text ---- */
+  const initials = SITE.name.split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase();
+  document.querySelectorAll('[data-bind="name"]').forEach(el => el.textContent = SITE.name);
+  document.querySelectorAll('[data-bind="title"]').forEach(el => el.textContent = SITE.title);
+  document.querySelectorAll('[data-bind="initials"]').forEach(el => el.textContent = initials);
+  $("#year").textContent = new Date().getFullYear();
+
+  /* ---- Theme ---- */
+  const root = document.documentElement;
+  const saved = store.get("theme");
+  if (saved === "dark" || saved === "light") root.dataset.theme = saved;
+  $("#themeToggle").addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    store.set("theme", root.dataset.theme);
+  });
+
+  /* ---- Images with graceful fallback ---- */
+  function media(src, alt, fallbackText) {
+    const ph = `<div class="ph" aria-hidden="true">${esc(fallbackText)}</div>`;
+    if (!src) return ph;
+    return `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" data-fallback="${esc(fallbackText)}">`;
+  }
+  document.addEventListener("error", e => {
+    const img = e.target;
+    if (img.tagName !== "IMG" || !img.dataset.fallback) return;
+    const ph = document.createElement("div");
+    ph.className = "ph"; ph.setAttribute("aria-hidden", "true"); ph.textContent = img.dataset.fallback;
+    img.replaceWith(ph);
+  }, true);
+
+  $("#portrait").innerHTML = media(SITE.portrait, "Portrait of " + SITE.name, initials);
+
+  /* ---- Blog ---- */
+  const fmtDate = d => {
+    const dt = new Date(d + "T00:00:00");
+    return isNaN(dt) ? d : dt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  };
+  const heart = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" stroke-linejoin="round"/></svg>';
+  const likeKey = id => "liked:" + id;
+
+  $("#posts").innerHTML = POSTS.map((p, i) => {
+    const liked = store.get(likeKey(p.id)) === "1";
+    return `
+    <article class="post reveal">
+      <a class="post-media" href="${esc(p.url)}" tabindex="-1" aria-hidden="true">${media(p.image, "", pad(i + 1))}</a>
+      <div class="post-meta"><time datetime="${esc(p.date)}">${esc(fmtDate(p.date))}</time>${p.readTime ? " &middot; " + esc(p.readTime) : ""}</div>
+      <h3><a href="${esc(p.url)}">${esc(p.title)}</a></h3>
+      <p>${esc(p.excerpt)}</p>
+      <div class="post-foot">
+        <a class="arrow-link" href="${esc(p.url)}">Read article <span aria-hidden="true">&nearr;</span></a>
+        <button class="like" type="button" data-id="${esc(p.id)}" aria-pressed="${liked}"
+                aria-label="Like &ldquo;${esc(p.title)}&rdquo;">${heart}<b>${liked ? "Liked" : "Like"}</b></button>
+      </div>
+    </article>`;
+  }).join("");
+
+  $("#posts").addEventListener("click", e => {
+    const btn = e.target.closest(".like");
+    if (!btn) return;
+    const liked = btn.getAttribute("aria-pressed") !== "true";
+    btn.setAttribute("aria-pressed", liked);
+    btn.querySelector("b").textContent = liked ? "Liked" : "Like";
+    store.set(likeKey(btn.dataset.id), liked ? "1" : "0");
+    if (liked) { btn.classList.remove("pop"); void btn.offsetWidth; btn.classList.add("pop"); }
+  });
+
+  /* ---- Projects ---- */
+  $("#projectList").innerHTML = PROJECTS.map((p, i) => `
+    <article class="project reveal">
+      <div class="project-no">${pad(i + 1)}</div>
+      <h3>${esc(p.title)}</h3>
+      <div class="project-body">
+        <p>${esc(p.description)}</p>
+        ${p.tags && p.tags.length ? `<div class="project-tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
+        <a class="arrow-link" href="${esc(p.repo)}" target="_blank" rel="noopener">View repository <span aria-hidden="true">&nearr;</span></a>
+      </div>
+    </article>`).join("");
+
+  /* ---- Contact ---- */
+  const emailLink = $("#emailLink");
+  emailLink.textContent = SITE.email;
+  emailLink.href = "mailto:" + SITE.email;
+  $("#socials").innerHTML = SITE.socials.map(s =>
+    `<a class="arrow-link" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} <span aria-hidden="true">&nearr;</span></a>`).join("");
+
+  const form = $("#contactForm"), status = $("#formStatus");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const f = Object.fromEntries(new FormData(form).entries());
+    if (f._gotcha) return;                                   // bot trap
+    if (!f.name.trim() || !f.message.trim() || !/^\S+@\S+\.\S+$/.test(f.email.trim())) {
+      status.textContent = "Please add your name, a valid email and a message.";
+      return;
+    }
+    const subject = f.subject.trim() || "Hello from your website";
+
+    if (SITE.formEndpoint) {
+      const btn = form.querySelector("button[type=submit]");
+      btn.disabled = true; status.textContent = "Sending…";
+      try {
+        const res = await fetch(SITE.formEndpoint, {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({ name: f.name, email: f.email, _subject: subject, message: f.message })
+        });
+        if (!res.ok) throw new Error(res.status);
+        form.reset(); status.textContent = "Thank you — your message has been sent.";
+      } catch (err) {
+        status.textContent = "That didn't go through. Please email " + SITE.email + " directly.";
+      } finally { btn.disabled = false; }
+      return;
+    }
+
+    const body = f.message.trim() + "\n\n— " + f.name.trim() + "\n" + f.email.trim();
+    window.location.href = "mailto:" + SITE.email +
+      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    status.textContent = "Your email app should open with the message ready to send. If it doesn't, write to " + SITE.email + ".";
+  });
+
+  /* ---- Scroll reveal + active nav link ---- */
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+    }), { rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach(el => io.observe(el));
+
+    const links = [...document.querySelectorAll('.nav a[href^="#"]')];
+    const spy = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach(s => spy.observe(s));
+  } else {
+    reveals.forEach(el => el.classList.add("in"));
+  }
+})();
+</script>
+</body>
+</html>
